@@ -1,0 +1,41 @@
+#ezsave-toast-container {
+  position: fixed;
+  z-index: 2147483647;
+  right: 16px;
+  bottom: 16px;
+  display: grid;
+  gap: 8px;
+  max-width: min(360px, calc(100vw - 32px));
+  pointer-events: none;
+}
+
+.ezsave-toast {
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: #ffffff;
+  font: 500 13px/1.35 Arial, sans-serif;
+  letter-spacing: 0;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+.ezsave-toast--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ezsave-toast--info {
+  background: #1f4d7a;
+}
+
+.ezsave-toast--success {
+  background: #17603d;
+}
+
+.ezsave-toast--error {
+  background: #962f2f;
+}

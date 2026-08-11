@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.tmp-ezsave-chromium-*/
+*.crx
+*.pem
+.DS_Store

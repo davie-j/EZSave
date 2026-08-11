@@ -1,0 +1,25 @@
+{
+  "name": "ezsave",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Manifest V3 Chromium extension for saving and converting web media.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs --watch",
+    "serve:fixtures": "node scripts/serve-fixtures.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "npm run typecheck",
+    "test": "tsx --test test/**/*.test.ts",
+    "test:chromium": "node scripts/chromium-smoke.mjs --browser chrome",
+    "test:brave": "node scripts/chromium-smoke.mjs --browser brave",
+    "test:all": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.2.5",
+    "@types/node": "^26.2.0",
+    "esbuild": "^0.25.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  }
+}

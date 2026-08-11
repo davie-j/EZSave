@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EZSave Fixture Gallery</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Arial, sans-serif;
+        background: #f4f7f5;
+        color: #1d2924;
+      }
+
+      body {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 32px 20px 48px;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: 28px;
+      }
+
+      p {
+        margin: 0 0 24px;
+        color: #4e5c55;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+      }
+
+      figure {
+        margin: 0;
+        border: 1px solid #ced8d2;
+        background: #ffffff;
+        padding: 12px;
+      }
+
+      figcaption {
+        margin-bottom: 10px;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      img,
+      video,
+      .background-image {
+        display: block;
+        width: 100%;
+        height: 180px;
+        object-fit: contain;
+        background: #e8eeea;
+      }
+
+      .background-image {
+        background-image: url("./assets/source.webp");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>EZSave Media Fixtures</h1>
+    <p>Right-click each media sample to exercise the extension.</p>
+
+    <main class="gallery">
+      <figure>
+        <figcaption>JPEG</figcaption>
+        <img id="jpeg-image" src="./assets/funny-cat.jpg" alt="JPEG fixture">
+      </figure>
+      <figure>
+        <figcaption>PNG with transparency</figcaption>
+        <img id="transparent-png" src="./assets/transparent-shape.png" alt="Transparent PNG fixture">
+      </figure>
+      <figure>
+        <figcaption>WebP</figcaption>
+        <img id="webp-image" src="./assets/source.webp" alt="WebP fixture">
+      </figure>
+      <figure>
+        <figcaption>AVIF</figcaption>
+        <img id="avif-image" src="./assets/source.avif" alt="AVIF fixture">
+      </figure>
+      <figure>
+        <figcaption>Animated GIF</figcaption>
+        <img id="animated-gif" src="./assets/animated.gif" alt="Animated GIF fixture">
+      </figure>
+      <figure>
+        <figcaption>Data URL</figcaption>
+        <img id="data-image" alt="Data URL fixture">
+      </figure>
+      <figure>
+        <figcaption>CSS background image</figcaption>
+        <div class="background-image" id="css-background" role="img" aria-label="CSS background fixture"></div>
+      </figure>
+      <figure>
+        <figcaption>Picture / srcset</figcaption>
+        <picture>
+          <source type="image/avif" srcset="./assets/source.avif 640w">
+          <source type="image/webp" srcset="./assets/source.webp 640w">
+          <img id="picture-image" src="./assets/funny-cat.jpg" srcset="./assets/funny-cat.jpg 640w, ./assets/source.webp 1280w" alt="Picture and srcset fixture">
+        </picture>
+      </figure>
+      <figure>
+        <figcaption>Lazy-loaded image</figcaption>
+        <img id="lazy-image" src="./assets/placeholder.png" data-src="./assets/source.webp" loading="lazy" alt="Lazy image fixture">
+      </figure>
+      <figure>
+        <figcaption>HTML5 MP4 video</figcaption>
+        <video id="video-fixture" controls muted loop preload="metadata">
+          <source src="./assets/sample.mp4" type="video/mp4">
+          <source src="./assets/sample.webm" type="video/webm">
+        </video>
+      </figure>
+    </main>
+
+    <script>
+      const dataImage = document.querySelector('#data-image');
+      dataImage.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR42mNk+M/wnwEPYBJRDAAAtwQJ/9YHYVQAAAAASUVORK5CYII=';
+
+      window.setTimeout(() => {
+        const lazyImage = document.querySelector('#lazy-image');
+        lazyImage.src = lazyImage.dataset.src;
+      }, 800);
+    </script>
+  </body>
+</html>

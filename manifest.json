@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "EZSave",
+  "version": "1.0.0",
+  "description": "Save original web media and convert images or video frames to PNG, JPEG, and WebP.",
+  "minimum_chrome_version": "116",
+  "permissions": ["contextMenus", "downloads", "offscreen"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background/index.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/index.js"],
+      "css": ["content/toast.css"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ],
+  "icons": {
+    "16": "assets/icon-16.png",
+    "32": "assets/icon-32.png",
+    "48": "assets/icon-48.png",
+    "128": "assets/icon-128.png"
+  }
+}
