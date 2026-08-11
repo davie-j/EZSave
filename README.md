@@ -90,6 +90,10 @@ The project is deliberately library-light: browser-native `fetch`, `createImageB
 
 No `tabs`, `scripting`, `storage`, notification, or remote-code permissions are requested. Broad host access is necessary for an image converter that works on arbitrary user-selected web pages; EZSave does not enumerate or scrape unrelated page resources.
 
+## Privacy
+
+EZSave handles only the selected media resource and the limited page URL and metadata required to save or convert it after a user invokes its context-menu command. It has no user accounts, analytics, persistent extension storage, or developer-operated backend. See the [Privacy Policy](PRIVACY.md) for the complete disclosure.
+
 ## Known Limitations
 
 - EZSave will not bypass DRM, Widevine, encryption, authentication controls, paywalls, or protected streaming systems.
