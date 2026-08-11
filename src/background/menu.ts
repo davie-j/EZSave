@@ -65,9 +65,9 @@ async function rebuildMenus(): Promise<void> {
   });
 
   const imageItems: Array<[string, string]> = [
-    [MENU_IDS.imagePng, 'Save & Convert to PNG'],
-    [MENU_IDS.imageWebp, 'Save & Convert to WEBP'],
-    [MENU_IDS.imageJpeg, 'Save & Convert to JPEG'],
+    [MENU_IDS.imagePng, 'Convert and Save as PNG'],
+    [MENU_IDS.imageWebp, 'Convert and Save as WEBP'],
+    [MENU_IDS.imageJpeg, 'Convert and Save as JPEG'],
     [MENU_IDS.imageOriginal, 'Save Original']
   ];
   const gifItems: Array<[string, string]> = [

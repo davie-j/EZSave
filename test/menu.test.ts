@@ -36,6 +36,25 @@ test('creates one media parent and a hidden CSS-background parent', async () => 
   assert.equal(backgroundRoot?.visible, false);
 });
 
+test('uses literal conversion labels instead of context-menu mnemonic markers', async () => {
+  await setupContextMenus();
+
+  const titles = new Map(created.map((item) => [String(item.id), String(item.title)]));
+  const conversionIds = [
+    MENU_IDS.imagePng,
+    MENU_IDS.imageWebp,
+    MENU_IDS.imageJpeg,
+    MENU_IDS.backgroundPng,
+    MENU_IDS.backgroundWebp,
+    MENU_IDS.backgroundJpeg
+  ];
+
+  assert.equal(titles.get(MENU_IDS.imagePng), 'Convert and Save as PNG');
+  assert.equal(titles.get(MENU_IDS.imageWebp), 'Convert and Save as WEBP');
+  assert.equal(titles.get(MENU_IDS.imageJpeg), 'Convert and Save as JPEG');
+  assert.ok(conversionIds.every((id) => !titles.get(id)?.includes('&')));
+});
+
 test('shows GIF actions only for detected GIFs and page actions only for CSS backgrounds', async () => {
   updates.length = 0;
   await showMenuFor('gif');
